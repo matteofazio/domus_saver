@@ -6,8 +6,6 @@ import os
 from google.cloud import vision
 from PIL import Image, ImageDraw
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "C:\\FAZIO\\Desktop\\QUESTURE\\text-detection-362511-c9a57db7685c.json"
-
 mypath = 'C:\\FAZIO\\Desktop\\QUESTURE'
 
 from os import walk
