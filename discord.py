@@ -60,4 +60,4 @@ async def on_ready():
     print("Bot is ready")
 
 
-client.run('MTAyMjE3OTExNzE1MzY2NTA1NQ.G5Xy9C.IbSqFUHsn7_G3F6vu9Kr6CCNUHrzaXYgNITHYg')
+client.run(os.environ['DISCORD_TOKEN_discord'])
