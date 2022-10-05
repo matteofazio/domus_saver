@@ -38,7 +38,7 @@ async def save(ctx):
         r = requests.get(url, stream=True)
         with open(imageName,'wb',) as out_file:
             print('Saving image: ' + imageName)
-            shutil.copyfileobj(r.raw, out_file,)
+            shutil.copyfileobj(r.raw, out_file)
             shutil.move(out_file, 'C:\\FAZIO\\Desktop\\QUESTURE')
 
 
