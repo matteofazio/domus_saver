@@ -47,7 +47,8 @@ async def save(ctx):
         with open(imageName,'wb',) as out_file:
             print('Saving image: ' + imageName)
             shutil.copyfileobj(r.raw, out_file)
-            shutil.move("""out_file""",imageName,'C:\\FAZIO\\Documents\\GitHub\\domus_saver')
+            out_file.close()
+            shutil.move(imageName,'C:\\FAZIO\\Documents\\GitHub\\domus_saver\\'+str(uuid.uuid4()) + '.jpg')
         await ctx.message.channel.send(f'Immagine Salvata!')
 
 
@@ -153,5 +154,6 @@ async def comandi(ctx):
 @client.event
 async def on_ready():
     print("Bot is ready")
+
 
 client.run(os.environ['DISCORD_TOKEN_discord'])
