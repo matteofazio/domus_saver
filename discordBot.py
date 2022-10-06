@@ -46,7 +46,7 @@ async def save(ctx):
             print('Saving image: ' + imageName)
             shutil.copyfileobj(r.raw, out_file)
             shutil.move(out_file, 'C:\\FAZIO\\Desktop\\QUESTURE',)
-	await ctx.message.channel.send(f'Immagine Salvata!')
+    await ctx.message.channel.send(f'Immagine Salvata!')
 
 
 @client.command(name = 'casa')
