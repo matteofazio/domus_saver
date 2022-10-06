@@ -51,46 +51,67 @@ async def save(ctx):
 
 @client.command(name = 'casa')
 async def casa(ctx):
-	casa_ID = ['']
 	if ctx.message.channel.id==carta_identità_italia_nuova:
 		print(f'Messaggio: {ctx.message.content}')
 	if ctx.message.author == client.user:
 		return
+	if len(casa_ID) > 50:
+		casa_ID.pop(0)
 	casa_ID.append(ctx.message.content[5:])
 	await ctx.message.channel.send(f'Saved info about casa')
+	print(casa_ID, host_capo, date_from, date_to)
 
 
 @client.command(name = 'da')
 async def da(ctx):
-	date_from = ['']
 	if ctx.message.channel.id==carta_identità_italia_nuova:
 		print(f'Messaggio: {ctx.message.content}')
 	if ctx.message.author == client.user:
 		return	
+	if len(date_from) > 50:
+		date_from.pop(0)
 	date_from.append(ctx.message.content[3:])
 	await ctx.message.channel.send(f'Salvata la data di check in')
+	print(casa_ID, host_capo, date_from, date_to)
 
 
 @client.command(name = 'a')
 async def a(ctx):
-	date_to = ['']
 	if ctx.message.channel.id==carta_identità_italia_nuova:
 		print(f'Messaggio: {ctx.message.content}')
 	if ctx.message.author == client.user:
 		return
+	if len(date_to) > 50:
+		date_to.pop(0)
 	date_to.append(ctx.message.content[2:])
 	await ctx.message.channel.send(f'Salvata la data di check out')
+	print(casa_ID, host_capo, date_from, date_to)
 
 
 @client.command(name = 'capo')
 async def capo(ctx):
-	host_capo = ['']
 	if ctx.message.channel.id==carta_identità_italia_nuova:
 		print(f'Messaggio: {ctx.message.content}')
 	if ctx.message.author == client.user:
 		return
-	host_capo.append(ctx.message.content[5:])
+	if len(host_capo) > 50:
+		host_capo.pop(0)
+	host_capo.append(ctx.message.content)
 	await ctx.message.channel.send(f'Saved info about capo')
+	print(casa_ID, host_capo, date_from, date_to)
+
+
+@client.command(name = 'non_capo')
+async def non_capo(ctx):
+	if ctx.message.channel.id==carta_identità_italia_nuova:
+		print(f'Messaggio: {ctx.message.content}')
+	if ctx.message.author == client.user:
+		return
+	if len(host_capo) > 50:
+		host_capo.pop(0)
+	host_capo.append('')
+	await ctx.message.channel.send(f'Saved info about capo')
+	print(casa_ID, host_capo, date_from, date_to)
 
 
 @client.command(name = 'info')
@@ -121,7 +142,7 @@ async def comandi(ctx):
 		print(f'Messaggio: {ctx.message.content}')
 	if ctx.message.author == client.user:
 		return
-	elenco_comandi = ['a:   inserisci data check-out','capo:   dichiara se è il capogruppo', 'casa:   inserisci ID casa','da:   inserisci data check-in','info:   controlla i dati inseriti','ID:   richiedi ID case', 'save:   salva l\'immagine']
+	elenco_comandi = ['a:   inserisci data check-out','capo:   dichiara se è il capogruppo', 'non_capo:   dichiara se non è il capogruppo' ,'casa:   inserisci ID casa','da:   inserisci data check-in','info:   controlla i dati inseriti','ID:   richiedi ID case', 'save:   salva l\'immagine']
 	b = ''
 	for j in elenco_comandi:
 		b = b + j + '\n'
