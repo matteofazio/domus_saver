@@ -100,7 +100,7 @@ async def info(ctx):
 	if ctx.message.author == client.user:
 		return
 	await ctx.message.channel.send(f'Capogruppo: {host_capo[-1]} \nCasa n°{casa_ID[-1]} \nData check-in: {date_from[-1]}\nData check-out:{date_to[-1]}')
-	print(casa, host_capo, date_from, date_to)
+	print(casa_ID, host_capo, date_from, date_to)
 
 @client.command(name = 'ID')
 async def ID(ctx):
