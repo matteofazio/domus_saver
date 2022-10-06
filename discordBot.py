@@ -9,6 +9,7 @@ from datetime import datetime
 import uuid
 import requests
 import shutil
+from pathlib import Path
 
 
 client = commands.Bot(command_prefix='', intents=discord.Intents.all())
@@ -40,12 +41,12 @@ async def save(ctx):
         await ctx.send("No attachments detected")
     else:
         await ctx.message.channel.send(f'Inzio salvataggio dell\'immagine')
-        imageName = str(uuid.uuid4()) + '.jpg'
+		imageName = str(Path.home() / Path(str(uuid.uuid4()) + '.jpg'))
+        #imageName = str(uuid.uuid4()) + '.jpg'
         r = requests.get(url, stream=True)
         with open(imageName,'wb',) as out_file:
             print('Saving image: ' + imageName)
             shutil.copyfileobj(r.raw, out_file)
-            print(out_file)
             shutil.move(out_file, 'C:\\FAZIO\\Documents\\GitHub\\domus_saver'+imageName,)
         await ctx.message.channel.send(f'Immagine Salvata!')
 
