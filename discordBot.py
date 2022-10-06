@@ -39,12 +39,14 @@ async def save(ctx):
         print("Error : No attachments")
         await ctx.send("No attachments detected")
     else:
+	await ctx.message.channel.send(f'Inzio salvataggio dell\'immagine')
         imageName = str(uuid.uuid4()) + '.jpg'
         r = requests.get(url, stream=True)
         with open(imageName,'wb',) as out_file:
             print('Saving image: ' + imageName)
             shutil.copyfileobj(r.raw, out_file)
             shutil.move(out_file, 'C:\\FAZIO\\Desktop\\QUESTURE',)
+	await ctx.message.channel.send(f'Immagine Salvata!')
 
 
 @client.command(name = 'casa')
