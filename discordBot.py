@@ -47,7 +47,7 @@ async def save(ctx):
         with open(imageName,'wb',) as out_file:
             print('Saving image: ' + imageName)
             shutil.copyfileobj(r.raw, out_file)
-            shutil.move(out_file, 'C:\\FAZIO\\Documents\\GitHub\\domus_saver'+imageName,)
+            shutil.move("""out_file,source = """,source = imageName, destination ='C:\\FAZIO\\Documents\\GitHub\\domus_saver')
         await ctx.message.channel.send(f'Immagine Salvata!')
 
 
